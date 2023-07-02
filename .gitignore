@@ -1,0 +1,3 @@
+build/lib
+grammar/**/*.ts
+node_modules

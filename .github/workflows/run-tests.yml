@@ -1,0 +1,14 @@
+name: run-tests.sh
+run-name: Tests
+on: [push]
+jobs:
+  Run-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: npm test

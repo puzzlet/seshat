@@ -1,0 +1,28 @@
+{
+  "name": "seshat",
+  "private": true,
+  "dependencies": {
+    "antlr4ts": "^0.5.0-alpha.4",
+    "assert": "^2.0.0",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "antlr4ts-cli": "^0.5.0-alpha.4",
+    "esbuild": "^0.18.11",
+    "eslint": "^8.43.0",
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "antlr4ts": "antlr4ts",
+    "build": "npm run build-antlr && npm run build-bundle",
+    "build-antlr": "antlr4ts ./grammar/seshat/SeshatLexer.g4 && antlr4ts ./grammar/seshat/SeshatParser.g4 -visitor -no-listener",
+    "build-bundle": "node bundle.mjs",
+    "run-dev-server": "node bundle.mjs --serve",
+    "test": "npm run test-js & npm run test-seshat",
+    "test-js": "node tests/js/*.mjs",
+    "test-seshat": "./run-tests.sh"
+  }
+}

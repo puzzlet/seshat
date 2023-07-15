@@ -14,13 +14,7 @@ $ node build/lib/seshat.js hello.seshat
 𓇋𓐩𓋇𓅨𓂋𓏏𓎟𓏞𓎟𓐪𓏧
 ```
 
-## Documentation
-
-TODO
-
-## Shoutouts for Ancient Egyptians
-
-It's here because nobody will read it if it's in the documentation.
+## But seriously, there are upsides about ancient Egyptian programming
 
 ### Algorithms before antiquity
 
@@ -46,12 +40,12 @@ assert result.ro == 1/13 + 1/10 + 1/2190
 
 ### Binary calculations
 
-For multiplications and divisions, Egyptians used a method called "doubling." For example, to calculate 2000 * 5:
+For multiplications and divisions, Egyptians used a method called "doubling." For example, to calculate 2000 * 5, they simply doubled 2000 until the multiplier reachs high enough for 5, and added things up:
 
 ```
-\1      2000
- 2      4000
-\4      8000
+\ 1     2000
+  2     4000
+\ 4     8000
 Total  10000
 ```
 -- from Rhind Mathematical Papyrus Problem 52
@@ -63,6 +57,10 @@ Over 3000 years later, it is similar to how computers multiply numbers every day
 Egyptians used what we call "determinatives" at the ends of words to specify the categories of the meanings of the words. For example, the words 𓊢𓂝𓂻 ꜥḥꜥ "to stand" and 𓊢𓂝𓇤 ꜥḥꜥ "heap, quantity (in mathematics)" share the same spelling 𓊢𓂝 ꜥḥꜥ, but the determinatives 𓂻 and 𓇤 tell the meaning and make the words different. Like when we declare variables in typed programming languages.
 
 In Seshat, you might use 𓇤 at the end of a variable to indicate it's about the quantity, namely a number variable. Or a papyrus scroll 𓏛 for the string variables.
+
+## Documentation
+
+TODO
 
 ## References & Further Readings
 

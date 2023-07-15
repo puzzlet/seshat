@@ -22,11 +22,43 @@ TODO
 
 It's here because nobody will read it if it's in the documentation.
 
-### Binary calculation
+### Algorithms before antiquity
 
-TODO
+Among the oldest mathematical texts in human history are Rhind Mathematical Papyrus and Moscow Mathematical Papyrus. They mostly consist of problems and their solutions, and the solutions are written as line-by-line instructions. Like a description of an algorithm, they're very programmatic:
 
-### Type system everywhere
+> Make 10 _heqats_ of the fat into _ro_; it shall become 3200.  
+> Make a year into days; it shall become 365.  
+> Divide 3200 by 365; it shall become 8 + 2/3 + 1/10 + 1/2190.  
+> Make this in [_haqet_ and _ro_ notation]; 1/64 [_haqet_ and] 1/3 + 1/10 + 1/2190 _ro_.
+>
+> -- from Rhind Mathematical Papyrus Problem 66
+
+```python
+x = heqat_to_ro(10)
+assert x == 3200
+assert days_in_a_year == 365
+x = x / days_in_a_year
+assert x == 8 + 2/3 + 1/10 + 1/2190
+result = ro_to_haqet_and_ro(x)
+assert result.haqet == 1/64
+assert result.ro == 1/13 + 1/10 + 1/2190
+```
+
+### Binary calculations
+
+For multiplications and divisions, Egyptians used a method called "doubling." For example, to calculate 2000 * 5:
+
+```
+\1      2000
+ 2      4000
+\4      8000
+Total  10000
+```
+-- from Rhind Mathematical Papyrus Problem 52
+
+Over 3000 years later, it is similar to how computers multiply numbers every day.
+
+### Type systems everywhere
 
 Egyptians used what we call "determinatives" at the ends of words to specify the categories of the meanings of the words. For example, the words 𓊢𓂝𓂻 ꜥḥꜥ "to stand" and 𓊢𓂝𓇤 ꜥḥꜥ "heap, quantity (in mathematics)" share the same spelling 𓊢𓂝 ꜥḥꜥ, but the determinatives 𓂻 and 𓇤 tell the meaning and make the words different. Like when we declare variables in typed programming languages.
 
@@ -36,6 +68,8 @@ In Seshat, you might use 𓇤 at the end of a variable to indicate it's about th
 
 ### The first books
 
+Reimer (2014) is a good introductory book about ancient Egyptian mathematics.
+
 If you are interested in Egyptian hieroglyphs for the first time, McDermott (2001) would be a good starter. Collier & Manley (1998) gives more about grammar and vocabulary.
 
 - Collier, M. & Manley, B. (1998). _How to read Egyptian hieroglyphs: a step-by-step guide to teach yourself_. Univ of California Press.
@@ -44,6 +78,7 @@ If you are interested in Egyptian hieroglyphs for the first time, McDermott (200
 - McDermott, B. (2001). _Decoding Egyptian hieroglyphs: How to read the secret language of the pharaohs_. Chronicle Books.
   - [at archive.org](https://archive.org/details/decodingegyptian0000mcde)
   - 《파라오의 비밀문자: 이집트 상형문자 읽는 법》. 권영진 옮김. 예경, 2005.
+- Reimer, D. (2014). _Count like an Egyptian: a hands-on introduction to ancient mathematics_. Princeton University Press.
 
 ### Language & dictionaries
 

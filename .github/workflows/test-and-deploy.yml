@@ -1,0 +1,45 @@
+name: Test & Deploy
+run-name: Test & Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build/
+
+  deploy-github-pages:
+    needs: run-tests
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build/
+      - uses: actions/configure-pages@v3
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'build/'
+      - id: deployment
+        uses: actions/deploy-pages@v2

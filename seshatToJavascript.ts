@@ -68,7 +68,7 @@ export class SeshatToJavascript extends AbstractParseTreeVisitor<string> impleme
 
   visitString_literal(ctx: String_literalContext | undefined): string {
     if (! ctx)  return '';
-    return JSON.stringify(ctx.text.replace(/^𓌃𓆓(.*)𓂢$/, '$1'));
+    return JSON.stringify(ctx.text.replace(/^𓆓𓌃(.*)𓂢$/, '$1'));
   }
 
   visitNumber(ctx: NumberContext | undefined): string {

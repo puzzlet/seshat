@@ -20,7 +20,7 @@ from os.path import dirname
 a4_base_path = dirname(__file__) + '/../grammar/seshat/'
 
 templates_path = ['_templates']
-exclude_patterns = ['Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build/', 'Thumbs.db', '.DS_Store']
 
 
 

@@ -4,7 +4,7 @@
 
 ```seshat
 # hello.seshat
-𓁹𓎡 𓏞𓏜𓎡 𓅓 𓌃𓆓𓇋𓐩𓋇𓅨𓂋𓏏𓎟𓏞𓎟𓐪𓏧𓂢
+𓁹𓎡 𓏞𓏜𓎡 𓅓 𓆓𓌃𓇋𓐩𓋇𓅨𓂋𓏏𓎟𓏞𓎟𓐪𓏧𓂢
 # ir=k zẖꜣ=k ḏd-mdw j.nḏ Zẖꜣ.t Nb.t Wr.t Zẖꜣ Nb.t Jqd.w grḥ
 # "Do write: "Hail Seshat, the Great, Mistress of the Script, Mistress of the Builders."
 ```

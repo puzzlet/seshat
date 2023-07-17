@@ -30,11 +30,11 @@ R: '𓂋' ;
 END: '𓂢' ;
 
 /**
- * 𓌃𓆓 ḏd-mdw "recitation" (literally "saying words"), commonly used in religious texts as starting quotation mark.
+ * 𓆓𓌃 ḏd-mdw "recitation" (literally "saying words"), commonly used in religious texts as starting quotation mark.
  *
  * It seems that there was no end quotation mark. 𓂢 grḥ "end" is not a end quotation mark, but used here for the similarity.
  */
-STRING_LITERAL: '𓌃𓆓' ~'\u{130a2}'+ END ;
+STRING_LITERAL: '𓆓𓌃' ~'\u{130a2}'+ END ;
 // TODO: '\n' END ?
 
 /**

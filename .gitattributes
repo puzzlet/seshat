@@ -1,0 +1,3 @@
+*.seshat linguist-language=Seshat
+
+build/docs/ linguist-generated=true

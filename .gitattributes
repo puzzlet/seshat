@@ -1,3 +1,4 @@
-*.seshat linguist-language=Seshat
+*.seshat	linguist-language=Seshat
 
-build/docs/ linguist-generated=true
+build/**	linguist-generated
+

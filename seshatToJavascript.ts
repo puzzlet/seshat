@@ -74,7 +74,7 @@ export class SeshatToJavascript extends AbstractParseTreeVisitor<string> impleme
   visitNumber(ctx: NumberContext | undefined): string {
     if (! ctx)  return '';
     const parsed = this.parseNumber(ctx);
-    return `(new seshatEnvironment.EgyptianNumber(${parsed.nominator}, ${parsed.denominator}))`;
+    return `(new seshatEnvironment.EgyptianNumber(${parsed.numerator}, ${parsed.denominator}))`;
   }
 
   parseNumber(ctx: NumberContext): EgyptianNumber {

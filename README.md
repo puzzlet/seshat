@@ -23,7 +23,7 @@ Among the oldest mathematical texts in human history are Rhind Mathematical Papy
 > Make 10 _heqats_ of the fat into _ro_; it shall become 3200.  
 > Make a year into days; it shall become 365.  
 > Divide 3200 by 365; it shall become 8 + 2/3 + 1/10 + 1/2190.  
-> Make this in [_haqet_ and _ro_ notation]; 1/64 [_haqet_ and] 1/3 + 1/10 + 1/2190 _ro_.
+> Make this in [_haqet_ and _ro_ notation]; 1/64 [_haqet_ and] 2/3 + 1/10 + 1/2190 _ro_.
 >
 > -- from Rhind Mathematical Papyrus Problem 66
 
@@ -35,8 +35,9 @@ x = x / days_in_a_year
 assert x == 8 + 2/3 + 1/10 + 1/2190
 result = ro_to_haqet_and_ro(x)
 assert result.haqet == 1/64
-assert result.ro == 1/13 + 1/10 + 1/2190
+assert result.ro == 2/3 + 1/10 + 1/2190
 ```
+
 
 ### Binary calculations
 

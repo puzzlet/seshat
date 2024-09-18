@@ -50,7 +50,7 @@ export class EgyptianNumber {
   ];
   static readonly glyphToNumber: ReadonlyMap<string, number> = new Map<string, number>();
 
-  readonly nominator: bigint;
+  readonly numerator: bigint;
   readonly denominator: bigint;
   private _normalized: readonly [bigint, bigint][];
   private _hieroglyphs: string;
@@ -74,18 +74,18 @@ export class EgyptianNumber {
     });
   }
 
-  constructor(nominator: number | bigint, denominator: number | bigint = 1) {
-    const gcd = EgyptianNumber.gcd(nominator, denominator);
-    this.nominator = BigInt(nominator) / gcd;
+  constructor(numerator: number | bigint, denominator: number | bigint = 1) {
+    const gcd = EgyptianNumber.gcd(numerator, denominator);
+    this.numerator = BigInt(numerator) / gcd;
     this.denominator = BigInt(denominator) / gcd;
     if (this.denominator < 0) {
-      this.nominator = -this.nominator;
+      this.numerator = -this.numerator;
       this.denominator = -this.denominator;
     }
   }
 
   toString(): string {
-    return `EgyptianNumber(${this.nominator}, ${this.denominator}) ${this.toHieroglyphs()}`;
+    return `EgyptianNumber(${this.numerator}, ${this.denominator}) ${this.toHieroglyphs()}`;
   }
 
   toHieroglyphs(): string {
@@ -109,7 +109,7 @@ export class EgyptianNumber {
   get normalized(): readonly [bigint, bigint][] {
     if (this._normalized) return this._normalized;
 
-    let nom: bigint = this.nominator;
+    let nom: bigint = this.numerator;
     let denom: bigint = this.denominator;
     let normalized: [bigint, bigint][] = [];
     if (nom == BigInt(0)) {
@@ -153,11 +153,11 @@ export class EgyptianNumber {
   }
 
   isEqualTo(a: EgyptianNumber): boolean {
-    return this.denominator * a.nominator == a.denominator * this.nominator;
+    return this.denominator * a.numerator == a.denominator * this.numerator;
   }
 
   static add(a: EgyptianNumber, b: EgyptianNumber): EgyptianNumber {
-    return new EgyptianNumber(a.nominator * b.denominator + b.nominator * a.denominator, a.denominator * b.denominator);
+    return new EgyptianNumber(a.numerator * b.denominator + b.numerator * a.denominator, a.denominator * b.denominator);
   }
 
   static addAll(...summands: EgyptianNumber[]): EgyptianNumber {
@@ -169,7 +169,7 @@ export class EgyptianNumber {
   }
 
   static subtract(a: EgyptianNumber, b: EgyptianNumber): EgyptianNumber {
-    return new EgyptianNumber(a.nominator * b.denominator - b.nominator * a.denominator, a.denominator * b.denominator);
+    return new EgyptianNumber(a.numerator * b.denominator - b.numerator * a.denominator, a.denominator * b.denominator);
   }
 
   static reverseSubtract(b: EgyptianNumber, a: EgyptianNumber): EgyptianNumber {
@@ -177,11 +177,11 @@ export class EgyptianNumber {
   }
 
   static multiply(a: EgyptianNumber, b: EgyptianNumber): EgyptianNumber {
-    return new EgyptianNumber(a.nominator * b.nominator, a.denominator * b.denominator);
+    return new EgyptianNumber(a.numerator * b.numerator, a.denominator * b.denominator);
   }
 
   static divide(a: EgyptianNumber, b: EgyptianNumber): EgyptianNumber {
-    return new EgyptianNumber(a.nominator * b.denominator, a.denominator * b.nominator);
+    return new EgyptianNumber(a.numerator * b.denominator, a.denominator * b.numerator);
   }
 
   static parseIntegerFromString(str: string | undefined): number {

@@ -19,10 +19,14 @@
   },
   "scripts": {
     "antlr4ts": "antlr4ts",
+
     "build": "npm run build-antlr && npm run build-bundle",
     "build-antlr": "antlr4ts ./grammar/seshat/SeshatLexer.g4 && antlr4ts ./grammar/seshat/SeshatParser.g4 -visitor -no-listener",
     "build-bundle": "node bundle.mjs",
+    "lint": "eslint .",
+
     "run-dev-server": "node bundle.mjs --serve",
+
     "test": "npm run test-js & npm run test-seshat",
     "test-js": "node tests/js/*.mjs",
     "test-seshat": "./run-tests.sh"

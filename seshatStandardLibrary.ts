@@ -1,9 +1,9 @@
 import { EgyptianNumber } from './egyptianNumber';
 
-type seshatVariable = EgyptianNumber | string;
+type SeshatVariable = EgyptianNumber | string;
 
 export function makeSeshatEnvironment(options: {
-  systemPrint: (...args: any) => void,
+  systemPrint: (...args: string[]) => void,
   systemAssert: (expr: boolean) => void,
 }) {
   options = {
@@ -13,7 +13,7 @@ export function makeSeshatEnvironment(options: {
   };
   return {
     EgyptianNumber: EgyptianNumber,
-    print: (...args: Array<any>) => {
+    print: (...args: SeshatVariable[]) => {
       const processedArgs = args.map(item => {
         if (item instanceof EgyptianNumber) {
           return item.toHieroglyphs();
@@ -23,7 +23,7 @@ export function makeSeshatEnvironment(options: {
       })
       options.systemPrint(...processedArgs);
     },
-    assertEqual: (a: seshatVariable, b: seshatVariable) => {
+    assertEqual: (a: SeshatVariable, b: SeshatVariable) => {
       if (a instanceof EgyptianNumber) {
         options.systemAssert((b instanceof EgyptianNumber) && a.isEqualTo(b));
         return;

@@ -162,7 +162,7 @@ export class EgyptianNumber {
 
   static addAll(...summands: EgyptianNumber[]): EgyptianNumber {
     let result = new EgyptianNumber(0);
-    summands.forEach((summand, i, array) => {
+    summands.forEach((summand) => {
       result = this.add(result, summand);
     })
     return result;
